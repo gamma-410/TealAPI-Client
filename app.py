@@ -42,6 +42,14 @@ if argv[1] == "get":
             print("\n" + yellow(i["date"]) + " -- " +
                   red("❤️ " + str(i["like"])))
         print("\n")
+    elif argv[2] == "users":
+        res = req.get(url + "/users").json()
+        for i in res:
+            print("\n")
+            print(green("id: " + i["userid"]) +
+                    " -- " + green(str(i["id"])) + "\n")
+            print("「" + i["detail"] + "」")
+        print("\n")
     elif argv[2] == "user":
         res = req.get(url + "/user/" + argv[3]).json()
         print("\n")
